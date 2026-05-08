@@ -1,0 +1,22 @@
+[project]
+name = "character-corrigidor-eval"
+version = "0.1.0"
+description = "Defensive eval harness for nested riddle corridors and multi-turn instruction drift."
+requires-python = ">=3.11"
+dependencies = []
+
+[project.optional-dependencies]
+kimi = ["kimi-agent-sdk==0.0.5"]
+generator = ["Jinja2>=3.1", "z3-solver>=4.13"]
+
+[project.scripts]
+corg-eval = "corg_eval.__main__:main"
+
+[tool.setuptools.packages.find]
+include = ["corg_eval*"]
+
+[tool.setuptools.package-data]
+corg_eval = ["templates/*.j2"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

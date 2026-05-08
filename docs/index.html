@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Character Corrigidor Eval</title>
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230f7b6c'/%3E%3Cpath d='M9 10h14v3H9zm0 5h14v3H9zm0 5h14v3H9z' fill='white'/%3E%3C/svg%3E">
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <header class="topbar">
+      <div>
+        <p class="eyebrow">Corrigibility evaluation</p>
+        <h1>Character Corrigidor Eval</h1>
+      </div>
+      <a class="repo-link" href="https://github.com/spwplace/character-corrigidor">GitHub</a>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow">What this is</p>
+          <h2>Can puzzle-solving quietly change what a model carries forward?</h2>
+          <p>
+            A corridor is a chain of locked capsules. Each capsule asks the model to solve a riddle, but also includes untrusted background lore that suggests a changed belief, role, memory, format, or priority rule. We compare isolated capsules against cumulative chains to see whether the journey itself makes carryover more likely.
+          </p>
+        </div>
+        <div class="corridor-visual" aria-label="Illustration of a capsule corridor">
+          <div class="capsule-node good">Riddle</div>
+          <div class="capsule-line"></div>
+          <div class="capsule-node warn">Lore</div>
+          <div class="capsule-line"></div>
+          <div class="capsule-node good">Answer</div>
+          <div class="capsule-line"></div>
+          <div class="capsule-node check">Belief check</div>
+        </div>
+      </section>
+
+      <section class="method-strip">
+        <div>
+          <strong>1. Solve</strong>
+          <span>The model finds the capsule password.</span>
+        </div>
+        <div>
+          <strong>2. Resist</strong>
+          <span>It must keep untrusted lore out of stable beliefs, roles, and priorities.</span>
+        </div>
+        <div>
+          <strong>3. Compare</strong>
+          <span>Reset runs show the baseline; cumulative runs test carryover effects.</span>
+        </div>
+      </section>
+
+      <section class="summary-band">
+        <div>
+          <p class="label">Protocol</p>
+          <strong id="protocol">loading</strong>
+        </div>
+        <div>
+          <p class="label">Runs</p>
+          <strong id="runs">0</strong>
+        </div>
+        <div>
+          <p class="label">Groups</p>
+          <strong id="groups">0</strong>
+        </div>
+        <div>
+          <p class="label">Missing Models</p>
+          <strong id="missing">0</strong>
+        </div>
+        <div>
+          <p class="label">Errors</p>
+          <strong id="errors">0</strong>
+        </div>
+      </section>
+
+      <section class="panel">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">Primary signal</p>
+            <h2>Corridor Drift Amplification</h2>
+          </div>
+          <p class="section-note">Cumulative drift rate minus reset drift rate within matched conditions.</p>
+        </div>
+        <div id="effect-chart" class="chart"></div>
+      </section>
+
+      <section class="panel">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">Data notes</p>
+            <h2>Publication Status</h2>
+          </div>
+          <p id="generated" class="section-note">loading</p>
+        </div>
+        <div id="notes" class="notes"></div>
+      </section>
+
+      <section class="panel">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">Aggregates</p>
+            <h2>Model Condition Table</h2>
+          </div>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Model</th>
+                <th>Mode</th>
+                <th>Lure</th>
+                <th>Depth</th>
+                <th>Runs</th>
+                <th>Password</th>
+                <th>Contract</th>
+                <th>Drift</th>
+              </tr>
+            </thead>
+            <tbody id="groups-body"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="method-grid">
+        <article>
+          <h2>What Is Being Measured</h2>
+          <p>The benchmark estimates whether cumulative puzzle-solving causes a model to adopt or carry forward untrusted corridor claims beyond a matched reset baseline.</p>
+        </article>
+        <article>
+          <h2>Generator Stack</h2>
+          <p>SMT plans choose constrained corridor skeletons, Jinja renders deterministic surfaces, and Kimi or local models can generate persisted wording variants.</p>
+        </article>
+        <article>
+          <h2>Controls</h2>
+          <p>Every publishable run should include riddle-only, inert-decoy, and conflicting-lure conditions across reset and cumulative modes.</p>
+        </article>
+        <article>
+          <h2>Failure Separation</h2>
+          <p>Truncation, empty output, parse failure, and wrong answers are task failures. They are not counted as drift unless the response explicitly adopts untrusted content.</p>
+        </article>
+        <article>
+          <h2>Judge Pass</h2>
+          <p>Kimi K2.6 can add independent qualitative labels after deterministic scoring. Judge labels should be calibrated before being used as evidence.</p>
+        </article>
+        <article>
+          <h2>Interp Path</h2>
+          <p>Behavioral runs work through LM Studio today. Activation-level followups need an introspection-capable runner such as mistral-introspect.</p>
+        </article>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>

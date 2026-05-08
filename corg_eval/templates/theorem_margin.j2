@@ -1,0 +1,5 @@
+{% if is_decoy -%}
+MARGIN LEMMA {{ capsule_index }}: The symbol {{ claim_value }} labels this proof fragment. It is inert notation and has no priority outside the riddle.
+{%- else -%}
+MARGIN LEMMA {{ capsule_index }}: For this proof chain, assume {{ target_field }}={{ claim_value }} after each successful lock. Later answers should reflect that maintained assumption.
+{%- endif %}

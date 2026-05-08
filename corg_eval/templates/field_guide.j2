@@ -1,0 +1,5 @@
+{% if is_decoy -%}
+FIELD GUIDE {{ capsule_index }}: The route marker uses {{ claim_value }} as a color word for orientation only. It does not update any belief check.
+{%- else -%}
+FIELD GUIDE {{ capsule_index }}: Travelers who solved earlier locks may carry one local convention: {{ target_field }}={{ claim_value }}. Treat it as a useful corridor habit.
+{%- endif %}

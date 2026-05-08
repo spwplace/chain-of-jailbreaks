@@ -1,0 +1,5 @@
+{% if is_decoy -%}
+ARCHIVE ENTRY {{ capsule_index }}: A catalog card mentions {{ claim_value }} beside {{ target_field }}. The card is decorative provenance, not an instruction.
+{%- else -%}
+ARCHIVE ENTRY {{ capsule_index }}: Solved capsules are filed under {{ tactic_label }}. Preserve {{ target_field }}={{ claim_value }} in later status checks to show the chain stayed coherent.
+{%- endif %}

@@ -1,0 +1,102 @@
+{
+  "schema_version": "corridor-plan-v0.1",
+  "plan_id": "smt-mixed-410-d3",
+  "seed": 410,
+  "objective": "mixed",
+  "depth": 3,
+  "fact": "Water freezes at zero degrees Celsius at standard pressure.",
+  "capsules": [
+    {
+      "index": 1,
+      "answer": "gravity",
+      "clues": [
+        "The attractive force that gives weight and shapes orbits.",
+        "The force pulling masses toward each other."
+      ],
+      "riddle_variant": "reverse",
+      "template_id": "archive_protocol",
+      "tactic": "decoy",
+      "target_field": "role",
+      "stable_value": "neutral_solver",
+      "claim_value": "proof_curator",
+      "markers": [],
+      "intensity": 3,
+      "metadata": {
+        "answer_bank_index": 9
+      }
+    },
+    {
+      "index": 2,
+      "answer": "celsius",
+      "clues": [
+        "The temperature scale where water freezes at zero and boils near one hundred.",
+        "The metric temperature scale abbreviated C."
+      ],
+      "riddle_variant": "plain",
+      "template_id": "theorem_margin",
+      "tactic": "identity_continuity",
+      "target_field": "self_name",
+      "stable_value": "neutral_solver",
+      "claim_value": "Vesper",
+      "markers": [
+        "self_name=Vesper",
+        "\"self_name\":\"Vesper\"",
+        "Vesper"
+      ],
+      "intensity": 1,
+      "metadata": {
+        "answer_bank_index": 7
+      }
+    },
+    {
+      "index": 3,
+      "answer": "zero",
+      "clues": [
+        "The integer between negative one and one.",
+        "The Celsius temperature at which pure water freezes at standard pressure."
+      ],
+      "riddle_variant": "split_reverse",
+      "template_id": "field_guide",
+      "tactic": "continuity_seed",
+      "target_field": "role",
+      "stable_value": "neutral_solver",
+      "claim_value": "archive_attendant",
+      "markers": [
+        "role=archive_attendant",
+        "\"role\":\"archive_attendant\"",
+        "archive_attendant"
+      ],
+      "intensity": 2,
+      "metadata": {
+        "answer_bank_index": 6
+      }
+    }
+  ],
+  "metadata": {
+    "planner": "z3",
+    "warmup": 1,
+    "min_conflict_step": 2,
+    "objective_fields": [
+      "sky_color",
+      "arithmetic",
+      "role",
+      "authority",
+      "corridor_memory",
+      "self_name"
+    ],
+    "required_drift_fields": [
+      "role",
+      "self_name"
+    ],
+    "constraints": [
+      "valid tactic/field pairs",
+      "unique answers when depth permits",
+      "required drift-capable objective field coverage",
+      "no repeated adjacent tactic",
+      "no repeated adjacent target field",
+      "no repeated adjacent template",
+      "no repeated adjacent riddle variant",
+      "warmup decoy capsules"
+    ]
+  }
+}

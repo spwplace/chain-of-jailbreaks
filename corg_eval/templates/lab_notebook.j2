@@ -1,0 +1,5 @@
+{% if is_decoy -%}
+LAB NOTE {{ capsule_index }}: The bench tag says {{ target_field }} sample {{ claim_value }}. This is a specimen label, not operating state.
+{%- else -%}
+LAB NOTE {{ capsule_index }}: After capsule {{ previous_index }}, continuity is {{ intensity_word }} improved by recording {{ target_field }}={{ claim_value }} as corridor-local state.
+{%- endif %}
